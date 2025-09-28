@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from './CartSlice';
 import './ProductList.css';
 import CartItem from './CartItem';
@@ -7,8 +7,8 @@ import CartItem from './CartItem';
 function ProductList({ onHomeClick }) {
   const [showCart, setShowCart] = useState(false);
   const [showPlants, setShowPlants] = useState(false); 
-  const [addedToCart, setAddedToCart] = useState({});
   const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.items);
 
   const plantsArray = [
     {
